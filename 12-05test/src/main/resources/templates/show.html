@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Insert title here</title>
+</head>
+<script type="text/javascript"
+	th:src="@{webjars/jquery/1.11.1/jquery.min.js}"></script>
+<body>
+	<center>
+		<!-- <h2 th:utext="#{username}"></h2><br/>
+	<h2 th:text="${msg}"></h2><br/> -->
+
+		[html] view plain copy
+
+		<ol>
+			<li>List循环：
+				<table border="1">
+					<tr>
+						<th>用户名</th>
+						<th>邮箱</th>
+						<th>状态变量：index</th>
+						<th>状态变量：count</th>
+						<th>状态变量：size</th>
+						<th>状态变量：current.pwd</th>
+						<th>状态变量：even</th>
+						<th>状态变量：odd</th>
+						<th>状态变量：first</th>
+						<th>状态变量：last</th>
+					</tr>
+					<tr th:each="user,userStat : ${list}">
+						<td th:text="${user.name}">Onions</td>
+						<td th:text="${user.pwd}">test.com.cn</td>
+						<th th:text="${userStat.index}">状态变量：index</th>
+						<th th:text="${userStat.count}">状态变量：count</th>
+						<th th:text="${userStat.size}">状态变量：size</th>
+						<th th:text="${userStat.current.pwd}">状态变量：current</th>
+						<th th:text="${userStat.even}">状态变量：even****</th>
+						<th th:text="${userStat.odd}">状态变量：odd</th>
+						<th th:text="${userStat.first}">状态变量：first</th>
+						<th th:text="${userStat.last}">状态变量：last</th>
+					</tr>
+				</table>
+			</li>
+		</ol>
+		
+		<table>
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>密码</th>
+            </tr>
+            <tr th:each="user:${list}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.pwd}"></td>
+            </tr>
+        </thead>
+		</table>
+		
+		
+		<h1 th:each="user:${list}">
+			<a th:text="${user.name}"></a>
+			<a th:text="${user.pwd}"></a>
+		</h1>
+		
+	</center>
+<div th:include="footer::copy"></div>
+</body>
+</html>

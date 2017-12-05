@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<center>
+	<a href="toAddUser">增加用户</a>
+		<table>
+            <tr>
+            	<th>用户id</th>
+                <th>用户名</th>
+                <th>性别</th>
+                <th>密码</th>
+                <th>修改</th>
+            </tr>
+            <tr th:each="user:${list}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.sex}"></td>
+                <td th:text="${user.pwd}"></td>
+                <th><a th:href="@{toupdate(id=${user.id})}">修改</a></th>
+            </tr>
+		</table>
+	</center>
+	<div th:include="footer::copy"></div>
+</body>
+</html>
